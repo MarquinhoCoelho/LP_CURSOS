@@ -1,103 +1,173 @@
-// Toggle do Menu Mobile
-const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.main-nav');
+/**
+ * VIVIT EDUCA — SCRIPT.JS
+ * Lógica da Aplicação, Eventos, Calculadora de ROI e Interatividade
+ */
 
-menuToggle?.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-  menuToggle.textContent = isOpen ? 'Fechar' : 'Menu';
+document.addEventListener('DOMContentLoaded', () => {
+  initHeaderScroll();
+  initMobileDrawer();
+  initRoiCalculator();
+  initPricingToggle();
+  initComparisonAccordion();
+  initFaqAccordion();
+  initTerezaWidget();
 });
 
-document.querySelectorAll('.main-nav a').forEach((link) => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menuToggle?.setAttribute('aria-expanded', 'false');
-    if (menuToggle) menuToggle.textContent = 'Menu';
-  });
-});
+/* 1. Header Sticky com Mudança de Estilo ao Rolar */
+function initHeaderScroll() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
 
-// Animação de entrada (Reveal) com suporte para IntersectionObserver
-const revealElements = document.querySelectorAll('.reveal');
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 30) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
     }
+  }, { passive: true });
+}
+
+/* 2. Menu Mobile Navigation Drawer */
+function initMobileDrawer() {
+  const toggleBtn = document.getElementById('mobileNavToggle');
+  const drawer = document.getElementById('mobileNavDrawer');
+  const closeBtn = document.getElementById('mobileDrawerClose');
+  const links = document.querySelectorAll('.mobile-drawer-links a');
+
+  if (!toggleBtn || !drawer) return;
+
+  toggleBtn.addEventListener('click', () => {
+    drawer.classList.add('open');
+    document.body.style.overflow = 'hidden';
   });
-}, { threshold: 0.1 });
 
-revealElements.forEach((element) => revealObserver.observe(element));
+  const close = () => {
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  };
 
-// Fallback automático para garantir visibilidade da página
-setTimeout(() => {
-  revealElements.forEach((element) => element.classList.add('visible'));
-}, 400);
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  links.forEach(l => l.addEventListener('click', close));
+}
 
-// Troca interativa de conteúdo na seção de Recursos
-const featureContent = {
-  marca: {
-    label: 'experiência white-label',
-    title: 'Aprender com a<br><em>sua identidade.</em>',
-    row: 'Fundamentos da sua metodologia',
-    progress: '72%',
-    background: 'linear-gradient(135deg, #eff8e7, #fff)'
-  },
-  conteudo: {
-    label: 'gestão de conteúdo',
-    title: 'Seu método em<br><em>cada etapa.</em>',
-    row: 'Módulo 03 · Avaliação prática',
-    progress: '46%',
-    background: 'linear-gradient(135deg, #e6f1ff, #fff)'
-  },
-  negocio: {
-    label: 'modelo de acesso',
-    title: 'Conhecimento que<br><em>vira recorrência.</em>',
-    row: 'Assinatura mensal ativa',
-    progress: '89%',
-    background: 'linear-gradient(135deg, #fff1e9, #fff)'
-  },
-  certificado: {
-    label: 'conclusão reconhecida',
-    title: 'Aprendizado que<br><em>deixa marca.</em>',
-    row: 'Certificado Vivit Cursos',
-    progress: '100%',
-    background: 'linear-gradient(135deg, #f4edff, #fff)'
-  }
-};
+/* 3. Calculadora Interativa de Economia (ROI) */
+function initRoiCalculator() {
+  const slider = document.getElementById('revenueSlider');
+  const revenueDisplay = document.getElementById('revenueDisplay');
+  const annualLossDisplay = document.getElementById('annualLossDisplay');
+  const annualSavingsDisplay = document.getElementById('annualSavingsDisplay');
+  const calcCtaBtn = document.getElementById('calcCtaBtn');
 
-const preview = document.querySelector('#feature-preview');
-document.querySelectorAll('.feature-tab').forEach((tab) => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.feature-tab').forEach((item) => item.classList.remove('active'));
-    tab.classList.add('active');
-    const content = featureContent[tab.dataset.feature];
-    if (preview && content) {
-      preview.style.background = content.background;
-      preview.innerHTML = `
-        <p class="preview-label">${content.label}</p>
-        <h3>${content.title}</h3>
-        <div class="preview-course-row">
-          <span class="preview-circle">01</span>
-          <span>${content.row}</span>
-          <b>${content.progress}</b>
-        </div>
-        <div class="preview-line"></div>
-        <div class="preview-line short"></div>
-      `;
+  if (!slider || !revenueDisplay) return;
+
+  function updateRoi() {
+    const revenue = parseFloat(slider.value);
+    revenueDisplay.textContent = formatBRL(revenue);
+
+    // Taxa Média de Marketplaces (10.8%)
+    const annualLoss = revenue * 0.108 * 12;
+    // Custo estimado do plano Vivit
+    const vivitCost = 9560;
+    const netSavings = Math.max(0, annualLoss - vivitCost);
+
+    if (annualLossDisplay) annualLossDisplay.textContent = formatBRL(annualLoss);
+    if (annualSavingsDisplay) annualSavingsDisplay.textContent = formatBRL(netSavings);
+
+    if (calcCtaBtn) {
+      const msg = encodeURIComponent(
+        `Olá! Simulei faturar ${formatBRL(revenue)}/mês no site da Vivit Educa e vi que posso economizar ${formatBRL(netSavings)}/ano em taxas. Quero criar minha plataforma!`
+      );
+      calcCtaBtn.href = `https://wa.me/5548996506443?text=${msg}`;
     }
-  });
-});
-
-// Formulário de contato/interesse
-document.querySelector('#interest-form')?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const message = form.querySelector('.form-message');
-  const name = new FormData(form).get('name');
-  if (message) {
-    message.textContent = `Obrigado, ${name}. Recebemos seu contato e um especialista falará com você.`;
   }
-  form.reset();
-});
+
+  slider.addEventListener('input', updateRoi);
+  updateRoi();
+}
+
+function formatBRL(value) {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    maximumFractionDigits: 0
+  }).format(value);
+}
+
+/* 4. Alternador de Preços (Mensal / Anual) */
+function initPricingToggle() {
+  const toggleBtn = document.getElementById('pricingToggleBtn');
+  const starterPrice = document.getElementById('priceStarter');
+  const proPrice = document.getElementById('pricePro');
+
+  if (!toggleBtn) return;
+
+  let isAnnual = true;
+
+  toggleBtn.addEventListener('click', () => {
+    isAnnual = !isAnnual;
+    toggleBtn.classList.toggle('annual', isAnnual);
+
+    if (starterPrice) starterPrice.textContent = isAnnual ? '197' : '247';
+    if (proPrice) proPrice.textContent = isAnnual ? '797' : '997';
+  });
+}
+
+/* 5. Accordion da Tabela Comparativa Completa */
+function initComparisonAccordion() {
+  const toggleBtn = document.getElementById('btnToggleComparisonTable');
+  const container = document.getElementById('plansTableContainer');
+
+  if (!toggleBtn || !container) return;
+
+  toggleBtn.addEventListener('click', () => {
+    const isOpen = container.classList.toggle('open');
+    toggleBtn.setAttribute('aria-expanded', isOpen);
+  });
+}
+
+/* 6. FAQ Accordion Accessible */
+function initFaqAccordion() {
+  const items = document.querySelectorAll('.faq-item');
+
+  items.forEach(item => {
+    const btn = item.querySelector('.faq-question-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      items.forEach(other => other.classList.remove('open'));
+
+      if (!isOpen) {
+        item.classList.add('open');
+      }
+    });
+  });
+}
+
+/* 7. Gerenciador do Widget Flutuante Tereza IA */
+function initTerezaWidget() {
+  const triggerBtn = document.getElementById('terezaTriggerBtn');
+  const bubble = document.getElementById('terezaSpeechBubble');
+  const modal = document.getElementById('terezaChatModal');
+  const closeBtn = document.getElementById('terezaModalClose');
+
+  if (!triggerBtn) return;
+
+  // Exibir balão de fala após 2.5s
+  setTimeout(() => {
+    if (bubble && !sessionStorage.getItem('tereza_dismissed')) {
+      bubble.classList.add('show');
+    }
+  }, 2500);
+
+  triggerBtn.addEventListener('click', () => {
+    if (bubble) bubble.classList.remove('show');
+    sessionStorage.setItem('tereza_dismissed', 'true');
+    if (modal) modal.classList.toggle('open');
+  });
+
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', () => modal.classList.remove('open'));
+  }
+}
