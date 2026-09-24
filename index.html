@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   
+  <!-- Font Awesome 6 (CDN de Ícones) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- CSS Principal -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,8 +21,8 @@
   <!-- 1. Barra de Aviso Superior -->
   <div class="top-banner">
     <div class="container top-banner-content">
-      <span>🚀 <strong>Sua marca, suas regras:</strong> 0% de comissão sobre suas vendas e infraestrutura White-Label completa.</span>
-      <a href="#contato" class="top-banner-link">Agendar Demonstração &rarr;</a>
+      <span><i class="fa-solid fa-rocket" style="color: var(--color-primary); margin-right: 6px;"></i> <strong>Sua marca, suas regras:</strong> 0% de comissão sobre suas vendas e infraestrutura White-Label completa.</span>
+      <a href="#contato" class="top-banner-link">Agendar Demonstração <i class="fa-solid fa-arrow-right" style="font-size: 0.8em; margin-left: 4px;"></i></a>
     </div>
   </div>
 
@@ -27,7 +30,7 @@
   <header class="header" id="header">
     <div class="container header-container">
       <a href="#" class="logo">
-        <span class="logo-badge">LMS</span>
+        <span class="logo-badge"><i class="fa-solid fa-graduation-cap"></i> LMS</span>
         <span class="logo-text">Platform</span>
       </a>
 
@@ -59,7 +62,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-content">
-          <span class="tag-badge">LMS Enterprise & White-Label</span>
+          <span class="tag-badge"><i class="fa-solid fa-shield-halved" style="margin-right: 6px;"></i> LMS Enterprise & White-Label</span>
           <h1 class="hero-title">
             Lance sua plataforma EAD com <span class="highlight">sua própria marca</span> e taxa zero por aluno.
           </h1>
@@ -67,20 +70,20 @@
             Escale sua infraestrutura educacional, venda cursos, gerencie comunidade e emita certificados em um ambiente 100% customizado com seu domínio e identidade visual.
           </p>
           <div class="hero-buttons">
-            <a href="#contato" class="btn btn-primary btn-lg">Começar Agora Gratuitamente</a>
-            <a href="#recursos" class="btn btn-secondary btn-lg">Ver Funcionalidades</a>
+            <a href="#contato" class="btn btn-primary btn-lg"><i class="fa-solid fa-bolt" style="margin-right: 8px;"></i> Começar Agora Gratuitamente</a>
+            <a href="#recursos" class="btn btn-secondary btn-lg"><i class="fa-solid fa-eye" style="margin-right: 8px;"></i> Ver Funcionalidades</a>
           </div>
           <div class="hero-trust">
             <div class="trust-item">
-              <span class="trust-icon">✓</span>
+              <span class="trust-icon"><i class="fa-solid fa-check"></i></span>
               <span>Domínio próprio</span>
             </div>
             <div class="trust-item">
-              <span class="trust-icon">✓</span>
+              <span class="trust-icon"><i class="fa-solid fa-check"></i></span>
               <span>0% comissão por venda</span>
             </div>
             <div class="trust-item">
-              <span class="trust-icon">✓</span>
+              <span class="trust-icon"><i class="fa-solid fa-check"></i></span>
               <span>Suporte dedicado</span>
             </div>
           </div>
@@ -94,19 +97,19 @@
                 <span class="dot yellow"></span>
                 <span class="dot green"></span>
               </div>
-              <span class="dashboard-url">seudominio.com.br/dashboard</span>
+              <span class="dashboard-url"><i class="fa-solid fa-lock" style="font-size: 0.75rem; margin-right: 6px;"></i> seudominio.com.br/dashboard</span>
             </div>
             <div class="dashboard-body">
               <div class="stats-grid">
                 <div class="stat-card">
                   <span class="stat-label">Alunos Ativos</span>
                   <span class="stat-value">12.480</span>
-                  <span class="stat-growth">+18% este mês</span>
+                  <span class="stat-growth"><i class="fa-solid fa-arrow-trend-up"></i> +18% este mês</span>
                 </div>
                 <div class="stat-card">
-                  <span class="stat-label">Faturamento Liquido</span>
+                  <span class="stat-label">Faturamento Líquido</span>
                   <span class="stat-value">R$ 148.900</span>
-                  <span class="stat-growth">0% de taxas</span>
+                  <span class="stat-growth"><i class="fa-solid fa-circle-check"></i> 0% de taxas</span>
                 </div>
               </div>
               <div class="preview-chart-placeholder">
@@ -117,7 +120,7 @@
                 <div class="chart-bar" style="height: 95%;"></div>
               </div>
               <div class="preview-active-user">
-                <div class="avatar">IA</div>
+                <div class="avatar"><i class="fa-solid fa-robot"></i></div>
                 <div class="user-info">
                   <strong>Tereza IA ativa:</strong>
                   <span>342 dúvidas de alunos respondidas hoje</span>
@@ -130,151 +133,212 @@
     </section>
 
     <!-- 4. Prova Social / Parceiros -->
-    <section class="partners">
+    <section class="partners-section">
       <div class="container">
         <p class="partners-title">Confiança de quem transforma a educação no Brasil</p>
-        <div class="partners-logos">
-          <span class="partner-logo">SENAC</span>
-          <span class="partner-logo">ITAÚ</span>
-          <span class="partner-logo">ÂNIMA</span>
-          <span class="partner-logo">ESTÁCIO</span>
-          <span class="partner-logo">FIAP</span>
+        <div class="partners-grid">
+          <span class="partner-logo"><i class="fa-solid fa-building-columns"></i> SENAC</span>
+          <span class="partner-logo"><i class="fa-solid fa-briefcase"></i> ITAÚ</span>
+          <span class="partner-logo"><i class="fa-solid fa-school"></i> ÂNIMA</span>
+          <span class="partner-logo"><i class="fa-solid fa-graduation-cap"></i> ESTÁCIO</span>
+          <span class="partner-logo"><i class="fa-solid fa-laptop-code"></i> FIAP</span>
         </div>
       </div>
     </section>
 
     <!-- 5. Dores do Cliente e Comparativo de Migração -->
-    <section class="pain-points" id="solucao">
+    <section class="section-padding" id="solucao">
       <div class="container">
-        <div class="section-header text-center">
-          <span class="section-tag">Sua Marca em Primeiro Lugar</span>
-          <h2>Por que migrar para uma plataforma White-Label?</h2>
-          <p>Livre-se de taxas abusivas sobre suas vendas e pare de enviar seus alunos para marketplaces que vendem o curso do seu concorrente.</p>
+        <div class="section-header">
+          <span class="tag-badge"><i class="fa-solid fa-crown" style="margin-right: 6px;"></i> Sua Marca em Primeiro Lugar</span>
+          <h2 class="section-title">Por que migrar para uma plataforma White-Label?</h2>
+          <p class="section-subtitle">Livre-se de taxas abusivas sobre suas vendas e pare de enviar seus alunos para marketplaces que vendem o curso do seu concorrente.</p>
         </div>
 
-        <div class="comparison-grid">
-          <div class="comparison-card bad">
-            <h3>Outras Plataformas Tradicionais</h3>
-            <ul>
-              <li>❌ Cobram taxas de até 20% sobre cada venda feita.</li>
-              <li>❌ Mantêm a marca deles em evidência, não a sua.</li>
-              <li>❌ Recomendam outros cursos concorrentes para seus alunos.</li>
-              <li>❌ Pouca flexibilidade para customização de layout.</li>
-            </ul>
+        <div class="target-grid">
+          <div class="target-card" style="border-top: 4px solid #ef4444;">
+            <h3 class="target-card-title"><i class="fa-solid fa-triangle-exclamation" style="color: #ef4444; margin-right: 8px;"></i> Outras Plataformas Tradicionais</h3>
+            <div class="target-list">
+              <div class="target-item">
+                <span class="target-item-check" style="color: #ef4444;"><i class="fa-solid fa-xmark"></i></span>
+                <span>Cobram taxas de até 20% sobre cada venda feita.</span>
+              </div>
+              <div class="target-item">
+                <span class="target-item-check" style="color: #ef4444;"><i class="fa-solid fa-xmark"></i></span>
+                <span>Mantêm a marca deles em evidência, não a sua.</span>
+              </div>
+              <div class="target-item">
+                <span class="target-item-check" style="color: #ef4444;"><i class="fa-solid fa-xmark"></i></span>
+                <span>Recomendam outros cursos concorrentes para seus alunos.</span>
+              </div>
+              <div class="target-item">
+                <span class="target-item-check" style="color: #ef4444;"><i class="fa-solid fa-xmark"></i></span>
+                <span>Pouca flexibilidade para customização de layout.</span>
+              </div>
+            </div>
           </div>
 
-          <div class="comparison-card good">
-            <div class="badge-good">Sua Plataforma Própria</div>
-            <h3>Nossa Solução LMS</h3>
-            <ul>
-              <li>✅ <strong>0% de comissão:</strong> Todo o lucro do seu curso é 100% seu.</li>
-              <li>✅ <strong>White-Label Real:</strong> Seu logotipo, suas cores e seu domínio.</li>
-              <li>✅ <strong>Alunos exclusivos:</strong> Ambiente fechado e focado na sua marca.</li>
-              <li>✅ <strong>Inteligência Artificial Nativa:</strong> Tutoria automatizada com IA.</li>
-            </ul>
+          <div class="target-card" style="border-top: 4px solid var(--color-primary-hover);">
+            <div class="tag-badge" style="width: fit-content; margin-bottom: 0.5rem;"><i class="fa-solid fa-star"></i> Sua Plataforma Própria</div>
+            <h3 class="target-card-title"><i class="fa-solid fa-circle-check" style="color: var(--color-primary-hover); margin-right: 8px;"></i> Nossa Solução LMS</h3>
+            <div class="target-list">
+              <div class="target-item">
+                <span class="target-item-check"><i class="fa-solid fa-check"></i></span>
+                <span><strong>0% de comissão:</strong> Todo o lucro do seu curso é 100% seu.</span>
+              </div>
+              <div class="target-item">
+                <span class="target-item-check"><i class="fa-solid fa-check"></i></span>
+                <span><strong>White-Label Real:</strong> Seu logotipo, suas cores e seu domínio.</span>
+              </div>
+              <div class="target-item">
+                <span class="target-item-check"><i class="fa-solid fa-check"></i></span>
+                <span><strong>Alunos exclusivos:</strong> Ambiente fechado e focado na sua marca.</span>
+              </div>
+              <div class="target-item">
+                <span class="target-item-check"><i class="fa-solid fa-check"></i></span>
+                <span><strong>Inteligência Artificial Nativa:</strong> Tutoria automatizada com IA.</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 6. Recursos Interativos -->
-    <section class="features" id="recursos">
+    <section class="section-padding features-tabs-section" id="recursos">
       <div class="container">
-        <div class="section-header text-center">
-          <span class="section-tag">Recursos Avançados</span>
-          <h2>Tudo o que você precisa para gerenciar e escalar</h2>
+        <div class="section-header">
+          <span class="tag-badge"><i class="fa-solid fa-cubes" style="margin-right: 6px;"></i> Recursos Avançados</span>
+          <h2 class="section-title">Tudo o que você precisa para gerenciar e escalar</h2>
         </div>
 
         <!-- Abas de Navegação -->
-        <div class="features-tabs">
-          <button class="tab-btn active" data-tab="whitelabel">Personalização White-Label</button>
-          <button class="tab-btn" data-tab="conteudo">Gestão de Conteúdo</button>
-          <button class="tab-btn" data-tab="negocios">Monetização e Vendas</button>
-          <button class="tab-btn" data-tab="certificados">Certificação e Métricas</button>
+        <div class="tab-nav-wrapper">
+          <button class="tab-btn active" data-tab="whitelabel">
+            <i class="fa-solid fa-wand-magic-sparkles tab-icon"></i> Personalização White-Label
+          </button>
+          <button class="tab-btn" data-tab="conteudo">
+            <i class="fa-solid fa-layer-group tab-icon"></i> Gestão de Conteúdo
+          </button>
+          <button class="tab-btn" data-tab="negocios">
+            <i class="fa-solid fa-chart-line tab-icon"></i> Monetização e Vendas
+          </button>
+          <button class="tab-btn" data-tab="certificados">
+            <i class="fa-solid fa-certificate tab-icon"></i> Certificação e Métricas
+          </button>
         </div>
 
         <!-- Conteúdo das Abas -->
-        <div class="features-content">
+        <div class="tab-content-card">
           <!-- Aba 1 -->
-          <div class="tab-panel active" id="tab-whitelabel">
-            <div class="tab-grid">
-              <div class="tab-text">
-                <h3>Sua escola, seu domínio, seu estilo</h3>
-                <p>Configure a plataforma para refletir com exatidão a identidade da sua instituição. Customize URLs, aplicativos móveis, e-mails transacionais e todo o ambiente do aluno.</p>
-                <ul class="feature-list">
-                  <li>Domínio customizado (ex: alunos.suaempresa.com.br)</li>
-                  <li>Paleta de cores e tipografias institucionais</li>
-                  <li>E-mails de boas-vindas com o seu remetente</li>
-                </ul>
+          <div class="tab-pane active" id="tab-whitelabel">
+            <div class="tab-text-content">
+              <h3>Sua escola, seu domínio, seu estilo</h3>
+              <p>Configure a plataforma para refletir com exatidão a identidade da sua instituição. Customize URLs, aplicativos móveis, e-mails transacionais e todo o ambiente do aluno.</p>
+              <div class="tab-feature-list">
+                <div class="tab-feature-item">
+                  <i class="fa-solid fa-check tab-feature-icon"></i>
+                  <span>Domínio customizado (ex: alunos.suaempresa.com.br)</span>
+                </div>
+                <div class="tab-feature-item">
+                  <i class="fa-solid fa-check tab-feature-icon"></i>
+                  <span>Paleta de cores e tipografias institucionais</span>
+                </div>
+                <div class="tab-feature-item">
+                  <i class="fa-solid fa-check tab-feature-icon"></i>
+                  <span>E-mails de boas-vindas com o seu remetente</span>
+                </div>
               </div>
-              <div class="tab-graphic">
-                <div class="graphic-box">
-                  <div class="color-picker-sim">
-                    <span>Cor Primária: <strong style="color: var(--color-primary);">#00E676</strong></span>
-                    <span>Cor Secundária: <strong style="color: var(--color-dark);">#10242D</strong></span>
-                  </div>
+            </div>
+            <div class="tab-visual-mock">
+              <div class="color-picker-sim" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; background: #fff; padding: 0.75rem 1rem; border-radius: 6px; border: 1px solid var(--color-border);">
+                  <span><i class="fa-solid fa-palette" style="margin-right: 8px; color: var(--color-primary-hover);"></i> Cor Primária</span>
+                  <strong style="color: var(--color-primary-hover);">#00E676</strong>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; background: #fff; padding: 0.75rem 1rem; border-radius: 6px; border: 1px solid var(--color-border);">
+                  <span><i class="fa-solid fa-fill-drip" style="margin-right: 8px; color: var(--color-dark);"></i> Cor Secundária</span>
+                  <strong style="color: var(--color-dark);">#10242D</strong>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Aba 2 -->
-          <div class="tab-panel" id="tab-conteudo">
-            <div class="tab-grid">
-              <div class="tab-text">
-                <h3>Aulas ao vivo, gravadas e materiais complementares</h3>
-                <p>Suporte completo para vídeos em alta definição, PDFs, quizzes interativos, tarefas práticas e módulos com liberação programada (Drip Content).</p>
-                <ul class="feature-list">
-                  <li>Hospedagem segura sem limite de tráfego</li>
-                  <li>Liberar módulos por datas ou progresso do aluno</li>
-                  <li>Integração direta com Zoom, Meet e YouTube Live</li>
-                </ul>
-              </div>
-              <div class="tab-graphic">
-                <div class="graphic-box text-center">
-                  <p>🎥 Player de Vídeo Otimizado e Anti-Pirataria</p>
+          <div class="tab-pane" id="tab-conteudo">
+            <div class="tab-text-content">
+              <h3>Aulas ao vivo, gravadas e materiais complementares</h3>
+              <p>Suporte completo para vídeos em alta definição, PDFs, quizzes interativos, tarefas práticas e módulos com liberação programada (Drip Content).</p>
+              <div class="tab-feature-list">
+                <div class="tab-feature-item">
+                  <i class="fa-solid fa-check tab-feature-icon"></i>
+                  <span>Hospedagem segura sem limite de tráfego</span>
+                </div>
+                <div class="tab-feature-item">
+                  <i class="fa-solid fa-check tab-feature-icon"></i>
+                  <span>Liberar módulos por datas ou progresso do aluno</span>
+                </div>
+                <div class="tab-feature-item">
+                  <i class="fa-solid fa-check tab-feature-icon"></i>
+                  <span>Integração direta com Zoom, Meet e YouTube Live</span>
                 </div>
               </div>
+            </div>
+            <div class="tab-visual-mock" style="text-align: center; padding: 3rem 1.5rem;">
+              <i class="fa-solid fa-circle-play" style="font-size: 3.5rem; color: var(--color-primary-hover); margin-bottom: 1rem;"></i>
+              <p style="font-weight: 700; color: var(--color-dark);">Player de Vídeo Otimizado e Anti-Pirataria</p>
             </div>
           </div>
 
           <!-- Aba 3 -->
-          <div class="tab-panel" id="tab-negocios">
-            <div class="tab-grid">
-              <div class="tab-text">
-                <h3>Checkout de alta conversão sem taxas adicionais</h3>
-                <p>Venda cursos avulsos, planos de assinatura, comunidades ou pacotes corporativos B2B. Conecte com gateways como Hotmart, Eduzz, Kiwify, Stripe e Asaas.</p>
-                <ul class="feature-list">
-                  <li>Integrações via Webhook e API aberta</li>
-                  <li>Cobranças recorrentes automáticas</li>
-                  <li>Gestão de cupons de desconto e afiliados</li>
-                </ul>
-              </div>
-              <div class="tab-graphic">
-                <div class="graphic-box text-center">
-                  <p>💳 Checkout Integrado Direct Payments</p>
+          <div class="tab-pane" id="tab-negocios">
+            <div class="tab-text-content">
+              <h3>Checkout de alta conversão sem taxas adicionais</h3>
+              <p>Venda cursos avulsos, planos de assinatura, comunidades ou pacotes corporativos B2B. Conecte com gateways como Hotmart, Eduzz, Kiwify, Stripe e Asaas.</p>
+              <div class="tab-feature-list">
+                <div class="tab-feature-item">
+                  <i class="fa-solid fa-check tab-feature-icon"></i>
+                  <span>Integrações via Webhook e API aberta</span>
+                </div>
+                <div class="tab-feature-item">
+                  <i class="fa-solid fa-check tab-feature-icon"></i>
+                  <span>Cobranças recorrentes automáticas</span>
+                </div>
+                <div class="tab-feature-item">
+                  <i class="fa-solid fa-check tab-feature-icon"></i>
+                  <span>Gestão de cupons de desconto e afiliados</span>
                 </div>
               </div>
+            </div>
+            <div class="tab-visual-mock" style="text-align: center; padding: 3rem 1.5rem;">
+              <i class="fa-solid fa-credit-card" style="font-size: 3.5rem; color: var(--color-primary-hover); margin-bottom: 1rem;"></i>
+              <p style="font-weight: 700; color: var(--color-dark);">Checkout Integrado Direct Payments</p>
             </div>
           </div>
 
           <!-- Aba 4 -->
-          <div class="tab-panel" id="tab-certificados">
-            <div class="tab-grid">
-              <div class="tab-text">
-                <h3>Emissão automática de certificados e relatórios</h3>
-                <p>Certificados automatizados e verificáveis por QR Code. Relatórios completos sobre engajamento, retenção e taxa de conclusão das turmas.</p>
-                <ul class="feature-list">
-                  <li>Modelos de certificado customizáveis</li>
-                  <li>Autenticidade via QR Code e código único</li>
-                  <li>Exportação de dados e métricas em tempo real</li>
-                </ul>
-              </div>
-              <div class="tab-graphic">
-                <div class="graphic-box text-center">
-                  <p>🎓 Certificado Oficial com Verificação QR</p>
+          <div class="tab-pane" id="tab-certificados">
+            <div class="tab-text-content">
+              <h3>Emissão automática de certificados e relatórios</h3>
+              <p>Certificados automatizados e verificáveis por QR Code. Relatórios completos sobre engajamento, retenção e taxa de conclusão das turmas.</p>
+              <div class="tab-feature-list">
+                <div class="tab-feature-item">
+                  <i class="fa-solid fa-check tab-feature-icon"></i>
+                  <span>Modelos de certificado customizáveis</span>
+                </div>
+                <div class="tab-feature-item">
+                  <i class="fa-solid fa-check tab-feature-icon"></i>
+                  <span>Autenticidade via QR Code e código único</span>
+                </div>
+                <div class="tab-feature-item">
+                  <i class="fa-solid fa-check tab-feature-icon"></i>
+                  <span>Exportação de dados e métricas em tempo real</span>
                 </div>
               </div>
+            </div>
+            <div class="tab-visual-mock" style="text-align: center; padding: 3rem 1.5rem;">
+              <i class="fa-solid fa-award" style="font-size: 3.5rem; color: var(--color-primary-hover); margin-bottom: 1rem;"></i>
+              <p style="font-weight: 700; color: var(--color-dark);">Certificado Oficial com Verificação QR</p>
             </div>
           </div>
         </div>
@@ -282,133 +346,190 @@
     </section>
 
     <!-- 7. Seção Destaque: Tereza IA -->
-    <section class="tereza-ia" id="ia">
+    <section class="section-padding tereza-section" id="ia">
       <div class="container tereza-grid">
         <div class="tereza-content">
-          <span class="tag-badge badge-ia">Inteligência Artificial Integrada</span>
-          <h2>Conheça a Tereza IA: Suporte e Tutoria 24/7 para seus alunos</h2>
-          <p>
+          <span class="tereza-badge"><i class="fa-solid fa-brain"></i> Inteligência Artificial Integrada</span>
+          <h2 class="tereza-title">Conheça a Tereza IA: Suporte e Tutoria 24/7 para seus alunos</h2>
+          <p class="tereza-desc">
             A Tereza IA é treinada com o conteúdo dos seus próprios cursos. Ela tira dúvidas dos alunos em tempo real dentro da videoaula, resume materiais e reduz o volume de suporte do seu time em até 80%.
           </p>
-          <div class="ia-features-list">
-            <div class="ia-item">
-              <strong>Contexto das videoaulas:</strong> Ela entende exatamente o trecho do vídeo que o aluno está assistindo.
+          <div class="highlight-box" style="margin-bottom: 1rem;">
+            <i class="fa-solid fa-video" style="color: var(--color-primary); font-size: 1.25rem; margin-top: 2px;"></i>
+            <div>
+              <h4>Contexto das videoaulas</h4>
+              <p>Ela entende exatamente o trecho do vídeo que o aluno está assistindo.</p>
             </div>
-            <div class="ia-item">
-              <strong>Zero alucinação:</strong> Responde estritamente com base nos seus PDFs, transcrições e e-books.
+          </div>
+          <div class="highlight-box">
+            <i class="fa-solid fa-shield-check" style="color: var(--color-primary); font-size: 1.25rem; margin-top: 2px;"></i>
+            <div>
+              <h4>Zero alucinação</h4>
+              <p>Responde estritamente com base nos seus PDFs, transcrições e e-books.</p>
             </div>
           </div>
         </div>
 
-        <div class="tereza-chat-sim">
-          <div class="chat-header">
-            <div class="avatar-ia">🤖</div>
-            <div>
-              <strong>Tereza IA</strong>
-              <small>Tutuora Virtual do seu Curso</small>
+        <div class="tereza-chat-card">
+          <div class="chat-card-header">
+            <div class="ai-status">
+              <span class="status-dot-pulse"></span>
+              <span>Tereza IA — Tutora Virtual do seu Curso</span>
             </div>
+            <i class="fa-solid fa-robot" style="color: var(--color-primary);"></i>
           </div>
-          <div class="chat-body">
-            <div class="msg user">Pode me explicar novamente o conceito de taxa zero?</div>
-            <div class="msg ai">Com certeza! Na nossa plataforma, diferente de marketplaces, você paga apenas uma assinatura fixa. Todo o dinheiro das vendas vai direto para sua conta de pagamento, sem comissões.</div>
-            <div class="msg user">Incrível! E posso usar meu próprio domínio?</div>
-            <div class="msg ai">Sim! A plataforma é 100% White-Label. Seu domínio, suas cores e sua identidade.</div>
+          <div class="chat-card-body">
+            <div class="chat-bubble user">Pode me explicar novamente o conceito de taxa zero?</div>
+            <div class="chat-bubble ai">Com certeza! Na nossa plataforma, diferente de marketplaces, você paga apenas uma assinatura fixa. Todo o dinheiro das vendas vai direto para sua conta de pagamento, sem comissões.</div>
+            <div class="chat-bubble user">Incrível! E posso usar meu próprio domínio?</div>
+            <div class="chat-bubble ai"><strong>Sim!</strong> A plataforma é 100% White-Label. Seu domínio, suas cores e sua identidade.</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 8. Passo a Passo -->
-    <section class="steps" id="como-funciona">
+    <section class="section-padding steps-section" id="como-funciona">
       <div class="container">
-        <div class="section-header text-center">
-          <span class="section-tag">Simplicidade</span>
-          <h2>Sua plataforma pronta em apenas 3 passos</h2>
+        <div class="section-header">
+          <span class="tag-badge"><i class="fa-solid fa-list-check" style="margin-right: 6px;"></i> Simplicidade</span>
+          <h2 class="section-title">Sua plataforma pronta em apenas 3 passos</h2>
         </div>
 
         <div class="steps-grid">
           <div class="step-card">
             <span class="step-number">01</span>
-            <h3>Personalize a Plataforma</h3>
-            <p>Suba seu logotipo, escolha suas cores e conecte seu próprio domínio em poucos cliques.</p>
+            <h3 class="step-title">Personalize a Plataforma</h3>
+            <p class="step-desc">Suba seu logotipo, escolha suas cores e conecte seu próprio domínio em poucos cliques.</p>
           </div>
           <div class="step-card">
             <span class="step-number">02</span>
-            <h3>Suba seus Conteúdos</h3>
-            <p>Cadastre suas aulas em vídeo, documentos, PDFs e organize seus módulos e materiais.</p>
+            <h3 class="step-title">Suba seus Conteúdos</h3>
+            <p class="step-desc">Cadastre suas aulas em vídeo, documentos, PDFs e organize seus módulos e materiais.</p>
           </div>
           <div class="step-card">
             <span class="step-number">03</span>
-            <h3>Comece a Vender e Escalar</h3>
-            <p>Conecte seu meio de pagamento preferido e receba 100% do valor das suas vendas sem intermediários.</p>
+            <h3 class="step-title">Comece a Vender e Escalar</h3>
+            <p class="step-desc">Conecte seu meio de pagamento preferido e receba 100% do valor das suas vendas sem intermediários.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 9. Tabela de Planos -->
-    <section class="pricing" id="planos">
+    <section class="section-padding pricing-section" id="planos">
       <div class="container">
-        <div class="section-header text-center">
-          <span class="section-tag">Transparência</span>
-          <h2>Planos sob medida para o seu momento</h2>
-          <p>Sem surpresas no final do mês. Escolha o plano ideal para a sua estrutura.</p>
+        <div class="section-header">
+          <span class="tag-badge"><i class="fa-solid fa-tags" style="margin-right: 6px;"></i> Transparência</span>
+          <h2 class="section-title">Planos sob medida para o seu momento</h2>
+          <p class="section-subtitle">Sem surpresas no final do mês. Escolha o plano ideal para a sua estrutura.</p>
         </div>
 
         <div class="pricing-grid">
           <!-- Plano Inicial -->
-          <div class="price-card">
-            <h3 class="plan-name">Starter</h3>
-            <p class="plan-desc">Ideal para quem está lançando o primeiro curso ou comunidade.</p>
-            <div class="plan-price">
-              <span class="currency">R$</span>
-              <span class="amount">297</span>
-              <span class="period">/mês</span>
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="plan-name">Starter</h3>
+              <p class="plan-desc">Ideal para quem está lançando o primeiro curso ou comunidade.</p>
+              <div class="price-box">
+                <span class="currency">R$</span>
+                <span class="amount">297</span>
+                <span class="period">/mês</span>
+              </div>
             </div>
-            <ul class="plan-features">
-              <li> Atividades para até 500 alunos ativos</li>
-              <li> Domínio Próprio Customizado</li>
-              <li> 0% de comissão por vendas</li>
-              <li> Suporte por e-mail e ticket</li>
-              <li> Certificados Automatizados</li>
-            </ul>
+            <div class="pricing-features">
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>Atividades para até 500 alunos ativos</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>Domínio Próprio Customizado</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>0% de comissão por vendas</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>Suporte por e-mail e ticket</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>Certificados Automatizados</span>
+              </div>
+            </div>
             <a href="#contato" class="btn btn-outline btn-full">Selecionar Starter</a>
           </div>
 
           <!-- Plano Pro (Destaque) -->
-          <div class="price-card featured">
-            <span class="popular-tag">Mais Popular</span>
-            <h3 class="plan-name">Pro Enterprise</h3>
-            <p class="plan-desc">Para produtoras, escolas e empresas em rápida expansão.</p>
-            <div class="plan-price">
-              <span class="currency">R$</span>
-              <span class="amount">697</span>
-              <span class="period">/mês</span>
+          <div class="pricing-card featured">
+            <span class="badge-popular">Mais Popular</span>
+            <div class="pricing-header">
+              <h3 class="plan-name">Pro Enterprise</h3>
+              <p class="plan-desc">Para produtoras, escolas e empresas em rápida expansão.</p>
+              <div class="price-box">
+                <span class="currency">R$</span>
+                <span class="amount">697</span>
+                <span class="period">/mês</span>
+              </div>
             </div>
-            <ul class="plan-features">
-              <li> Atividades para até 5.000 alunos ativos</li>
-              <li> Tudo do plano Starter</li>
-              <li> <strong>Tereza IA integrada</strong> para tutoria</li>
-              <li> App mobile simulado e otimizado</li>
-              <li> Suporte prioritário via WhatsApp</li>
-            </ul>
+            <div class="pricing-features">
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>Atividades para até 5.000 alunos ativos</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>Tudo do plano Starter</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span><strong>Tereza IA integrada</strong> para tutoria</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>App mobile simulado e otimizado</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>Suporte prioritário via WhatsApp</span>
+              </div>
+            </div>
             <a href="#contato" class="btn btn-primary btn-full">Começar no Plano Pro</a>
           </div>
 
           <!-- Plano Scale -->
-          <div class="price-card">
-            <h3 class="plan-name">Corporate / White-Label</h3>
-            <p class="plan-desc">Para grandes faculdades, redes e infoprodutores de alta escala.</p>
-            <div class="plan-price">
-              <span class="amount">Sob Consulta</span>
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="plan-name">Corporate / White-Label</h3>
+              <p class="plan-desc">Para grandes faculdades, redes e infoprodutores de alta escala.</p>
+              <div class="price-box" style="margin-top: 1rem;">
+                <span class="amount" style="font-size: 1.8rem;">Sob Consulta</span>
+              </div>
             </div>
-            <ul class="plan-features">
-              <li> Alunos ativos ilimitados</li>
-              <li> Infraestrutura de servidor dedicada</li>
-              <li> Múltiplas instâncias para sub-empresas</li>
-              <li> Tereza IA personalizada com LLM dedicada</li>
-              <li> Gerente de conta exclusivo</li>
-            </ul>
+            <div class="pricing-features">
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>Alunos ativos ilimitados</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>Infraestrutura de servidor dedicada</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>Múltiplas instâncias para sub-empresas</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>Tereza IA personalizada com LLM dedicada</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa-solid fa-check feature-check"></i>
+                <span>Gerente de conta exclusivo</span>
+              </div>
+            </div>
             <a href="#contato" class="btn btn-outline btn-full">Falar com Consultor</a>
           </div>
         </div>
@@ -416,37 +537,49 @@
     </section>
 
     <!-- 10. Perguntas Frequentes (FAQ) -->
-    <section class="faq" id="faq">
-      <div class="container container-narrow">
-        <div class="section-header text-center">
-          <span class="section-tag">Dúvidas Comuns</span>
-          <h2>Perguntas Frequentes</h2>
+    <section class="section-padding faq-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag-badge"><i class="fa-solid fa-circle-question" style="margin-right: 6px;"></i> Dúvidas Comuns</span>
+          <h2 class="section-title">Perguntas Frequentes</h2>
         </div>
 
-        <div class="faq-list">
+        <div class="faq-container">
           <details class="faq-item">
-            <summary class="faq-question">Realmente não há cobrança de taxa ou comissão sobre minhas vendas?</summary>
+            <summary class="faq-question">
+              <span>Realmente não há cobrança de taxa ou comissão sobre minhas vendas?</span>
+              <i class="fa-solid fa-plus faq-icon"></i>
+            </summary>
             <div class="faq-answer">
               <p>Exatamente. Nós cobramos apenas a mensalidade fixa do plano escolhido. Todo o valor das suas vendas entra direto na sua conta do gateway de pagamento (Stripe, Kiwify, Asaas, etc.).</p>
             </div>
           </details>
 
           <details class="faq-item">
-            <summary class="faq-question">Como funciona a personalização do domínio e marca (White-Label)?</summary>
+            <summary class="faq-question">
+              <span>Como funciona a personalização do domínio e marca (White-Label)?</span>
+              <i class="fa-solid fa-plus faq-icon"></i>
+            </summary>
             <div class="faq-answer">
               <p>Você pode apontar o seu próprio domínio (ex: curso.suaempresa.com.br) através de um simples CNAME no seu provedor de DNS. O logotipo, cores, favicon e e-mails serão exclusivamente seus.</p>
             </div>
           </details>
 
           <details class="faq-item">
-            <summary class="faq-question">Como a Tereza IA aprende o conteúdo do meu curso?</summary>
+            <summary class="faq-question">
+              <span>Como a Tereza IA aprende o conteúdo do meu curso?</span>
+              <i class="fa-solid fa-plus faq-icon"></i>
+            </summary>
             <div class="faq-answer">
               <p>O sistema processa automaticamente as transcrições das suas videoaulas e os documentos em PDF que você cadastra na área de membros. Ela responde aos seus alunos estritamente com base nesse acervo.</p>
             </div>
           </details>
 
           <details class="faq-item">
-            <summary class="faq-question">Posso migrar meus alunos de outra plataforma?</summary>
+            <summary class="faq-question">
+              <span>Posso migrar meus alunos de outra plataforma?</span>
+              <i class="fa-solid fa-plus faq-icon"></i>
+            </summary>
             <div class="faq-answer">
               <p>Sim! Disponibilizamos ferramentas de importação em massa via CSV para que seus alunos atuais não percam o acesso nem o progresso durante a migração.</p>
             </div>
@@ -456,49 +589,71 @@
     </section>
 
     <!-- 11. Formulário de Captura de Leads / CTA Final -->
-    <section class="cta-form" id="contato">
+    <section class="section-padding contact-section" id="contato">
       <div class="container">
-        <div class="form-wrapper">
-          <div class="form-text">
-            <h2>Pronto para criar sua própria plataforma EAD White-Label?</h2>
+        <div class="contact-grid">
+          <div class="contact-info-box">
+            <h3>Pronto para criar sua própria plataforma EAD White-Label?</h3>
             <p>Preencha os dados ao lado para agendar uma demonstração guiada e testar a plataforma sem compromisso por 14 dias.</p>
-            <div class="form-benefits">
-              <div>✓ Teste grátis sem cartão de crédito</div>
-              <div>✓ Suporte para migração gratuita de conteúdos</div>
-              <div>✓ Atendimento direto por especialistas</div>
+            <div class="contact-channels">
+              <div class="channel-card">
+                <div class="channel-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="channel-details">
+                  <strong>Teste Grátis</strong>
+                  <span>Sem necessidade de cartão de crédito</span>
+                </div>
+              </div>
+              <div class="channel-card">
+                <div class="channel-icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                <div class="channel-details">
+                  <strong>Migração Gratuita</strong>
+                  <span>Ajudamos a trazer seus conteúdos atuais</span>
+                </div>
+              </div>
+              <div class="channel-card">
+                <div class="channel-icon"><i class="fa-solid fa-headset"></i></div>
+                <div class="channel-details">
+                  <strong>Suporte Humanizado</strong>
+                  <span>Atendimento direto com especialistas EAD</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <form class="lead-form" id="lead-form">
-            <div class="form-group">
-              <label for="name">Nome Completo</label>
-              <input type="text" id="name" name="name" placeholder="Ex: Marcos Silva" required>
-            </div>
+          <div class="contact-form-card">
+            <form class="lead-form" id="lead-form">
+              <div class="form-group">
+                <label for="name" class="form-label">Nome Completo</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Ex: Marcos Silva" required>
+              </div>
 
-            <div class="form-group">
-              <label for="email">E-mail Profissional</label>
-              <input type="email" id="email" name="email" placeholder="seuemail@empresa.com" required>
-            </div>
+              <div class="form-group">
+                <label for="email" class="form-label">E-mail Profissional</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="seuemail@empresa.com" required>
+              </div>
 
-            <div class="form-group">
-              <label for="phone">WhatsApp / Telefone</label>
-              <input type="tel" id="phone" name="phone" placeholder="(00) 90000-0000" required>
-            </div>
+              <div class="form-group">
+                <label for="phone" class="form-label">WhatsApp / Telefone</label>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="(00) 90000-0000" required>
+              </div>
 
-            <div class="form-group">
-              <label for="students">Quantidade atual de alunos</label>
-              <select id="students" name="students" required>
-                <option value="">Selecione uma opção</option>
-                <option value="0-100">Ainda vou começar (0 a 100)</option>
-                <option value="100-1000">100 a 1.000 alunos</option>
-                <option value="1000-5000">1.000 a 5.000 alunos</option>
-                <option value="5000+">Mais de 5.000 alunos</option>
-              </select>
-            </div>
+              <div class="form-group">
+                <label for="students" class="form-label">Quantidade atual de alunos</label>
+                <select id="students" name="students" class="form-select" required>
+                  <option value="">Selecione uma opção</option>
+                  <option value="0-100">Ainda vou começar (0 a 100)</option>
+                  <option value="100-1000">100 a 1.000 alunos</option>
+                  <option value="1000-5000">1.000 a 5.000 alunos</option>
+                  <option value="5000+">Mais de 5.000 alunos</option>
+                </select>
+              </div>
 
-            <button type="submit" class="btn btn-primary btn-full">Solicitar Demonstração Gratuita</button>
-            <p class="form-disclaimer">Seus dados estão protegidos. Não enviamos spam.</p>
-          </form>
+              <button type="submit" class="btn btn-primary btn-full"><i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i> Solicitar Demonstração Gratuita</button>
+              <p style="font-size: 0.75rem; color: var(--color-text-muted); text-align: center; margin-top: 0.75rem;">
+                <i class="fa-solid fa-lock" style="margin-right: 4px;"></i> Seus dados estão protegidos. Não enviamos spam.
+              </p>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -507,37 +662,47 @@
   <!-- 12. Rodapé -->
   <footer class="footer">
     <div class="container footer-grid">
-      <div class="footer-col brand-col">
+      <div class="footer-brand">
         <a href="#" class="logo">
-          <span class="logo-badge">LMS</span>
+          <span class="logo-badge"><i class="fa-solid fa-graduation-cap"></i> LMS</span>
           <span class="logo-text">Platform</span>
         </a>
-        <p>A solução LMS White-Label definitiva para edtechs, produtoras de conteúdo e empresas que levam a educação a sério.</p>
+        <p class="footer-desc">A solução LMS White-Label definitiva para edtechs, produtoras de conteúdo e empresas que levam a educação a sério.</p>
+        <div class="social-links">
+          <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
       </div>
 
-      <div class="footer-col">
+      <div class="footer-column">
         <h4>Navegação</h4>
-        <ul>
-          <li><a href="#solucao">Solução White-Label</a></li>
-          <li><a href="#recursos">Recursos do LMS</a></li>
-          <li><a href="#ia">Tereza IA</a></li>
-          <li><a href="#planos">Tabela de Preços</a></li>
-        </ul>
+        <div class="footer-links">
+          <a href="#solucao" class="footer-link">Solução White-Label</a>
+          <a href="#recursos" class="footer-link">Recursos do LMS</a>
+          <a href="#ia" class="footer-link">Tereza IA</a>
+          <a href="#planos" class="footer-link">Tabela de Preços</a>
+        </div>
       </div>
 
-      <div class="footer-col">
-        <h4>Legal e Suporte</h4>
-        <ul>
-          <li><a href="#">Termos de Uso</a></li>
-          <li><a href="#">Política de Privacidade</a></li>
-          <li><a href="#">Status do Sistema</a></li>
-          <li><a href="#">Central de Ajuda</a></li>
-        </ul>
+      <div class="footer-column">
+        <h4>Legal & Suporte</h4>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Termos de Uso</a>
+          <a href="#" class="footer-link">Política de Privacidade</a>
+          <a href="#" class="footer-link">Status do Sistema</a>
+          <a href="#" class="footer-link">Central de Ajuda</a>
+        </div>
       </div>
     </div>
 
     <div class="container footer-bottom">
       <p>&copy; 2026 LMS Platform White-Label. Todos os direitos reservados.</p>
+      <div class="footer-legal-links">
+        <a href="#" class="footer-legal-link">Privacidade</a>
+        <a href="#" class="footer-legal-link">Termos</a>
+        <a href="#" class="footer-legal-link">Cookies</a>
+      </div>
     </div>
   </footer>
 
