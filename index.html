@@ -587,11 +587,11 @@
     }
 
     .compare-card.traditional {
-      border-top: 5px solid #ef4444;
+      /* border-top: 5px solid #ef4444; */
     }
 
     .compare-card.vivit-educa {
-      border-top: 5px solid var(--primary);
+      /* border-top: 5px solid var(--primary); */
       background: linear-gradient(180deg, #ffffff 0%, #edf7f8 100%);
       box-shadow: var(--shadow-lg), var(--shadow-glow);
     }
@@ -1076,7 +1076,6 @@
         <a href="#para-quem">Para quem</a>
         <a href="#diferenciais">Diferenciais</a>
         <a href="#recursos">Recursos</a>
-        <a href="#calculadora">Calculadora ROI</a>
         <a href="#planos">Planos</a>
       </nav>
 
@@ -1093,10 +1092,6 @@
     <!-- HERO SECTION -->
     <section class="hero-section container">
       <div class="hero-copy">
-        <div class="section-tag">
-          <span class="pulse-dot"></span>
-          <span>Sua Plataforma White-Label</span>
-        </div>
         <h1 class="hero-title">Seu conhecimento merece uma <em>plataforma própria.</em></h1>
         <p class="hero-desc">Crie, organize e venda seus cursos em uma experiência 100% personalizada com a sua marca. Sem marketplaces concorrendo por atenção no caminho.</p>
         
@@ -1436,45 +1431,7 @@
       </div>
     </section>
 
-    <!-- CALCULADORA DE ROI INTERATIVA -->
-    <section class="section container" id="calculadora">
-      <div class="section-header">
-        <div class="section-tag">
-          <i class="fa-solid fa-calculator"></i>
-          <span>Simulador Financeiro</span>
-        </div>
-        <h2 class="section-title">Calcule quanto você economiza em <em>taxas.</em></h2>
-      </div>
-
-      <div class="calculator-card">
-        <div class="slider-group">
-          <div class="slider-label-row">
-            <label style="font-weight: 600;">Seu faturamento mensal estimado com cursos:</label>
-            <span class="slider-value-display" id="revenueDisplay">R$ 50.000</span>
-          </div>
-          <input type="range" class="custom-range-slider" id="revenueSlider" min="5000" max="300000" step="5000" value="50000">
-        </div>
-
-        <div class="calc-results-grid">
-          <div class="calc-stat-box loss">
-            <small style="color: #dc2626; font-weight: 600;">Perda Anual Estimada em Marketplaces (10.8%):</small>
-            <div class="calc-stat-number" id="annualLossDisplay">R$ 64.800</div>
-          </div>
-
-          <div class="calc-stat-box saving">
-            <small style="color: var(--primary); font-weight: 600;">Sua Economia Liquida Estimada com Vivit:</small>
-            <div class="calc-stat-number" id="annualSavingsDisplay">R$ 55.240</div>
-          </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 28px;">
-          <a class="btn-primary" id="calcCtaBtn" href="https://wa.me/5548996506443" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>Quero Economizar Agora</span>
-          </a>
-        </div>
-      </div>
-    </section>
+   
 
     <!-- SEÇÃO DE PLANOS -->
     <section class="section container" id="planos">
