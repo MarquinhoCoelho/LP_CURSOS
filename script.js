@@ -25,6 +25,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+setTimeout(() => document.querySelectorAll('.reveal').forEach((element) => element.classList.add('visible')), 900);
 
 const featureContent = {
   marca: {
@@ -73,6 +74,6 @@ document.querySelector('#interest-form')?.addEventListener('submit', (event) => 
   const form = event.currentTarget;
   const message = form.querySelector('.form-message');
   const name = new FormData(form).get('name');
-  message.textContent = `Obrigado, ${name}. Seu interesse foi registrado para o lançamento.`;
+  message.textContent = `Obrigado, ${name}. Recebemos seu contato e um especialista falará com você.`;
   form.reset();
 });
