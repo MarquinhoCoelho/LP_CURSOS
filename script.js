@@ -1,3 +1,4 @@
+// Toggle do Menu Mobile
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
 
@@ -15,6 +16,9 @@ document.querySelectorAll('.main-nav a').forEach((link) => {
   });
 });
 
+// Animação de entrada (Reveal) com suporte para IntersectionObserver
+const revealElements = document.querySelectorAll('.reveal');
+
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -22,11 +26,16 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 
-document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
-setTimeout(() => document.querySelectorAll('.reveal').forEach((element) => element.classList.add('visible')), 900);
+revealElements.forEach((element) => revealObserver.observe(element));
 
+// Fallback automático para garantir visibilidade da página
+setTimeout(() => {
+  revealElements.forEach((element) => element.classList.add('visible'));
+}, 400);
+
+// Troca interativa de conteúdo na seção de Recursos
 const featureContent = {
   marca: {
     label: 'experiência white-label',
@@ -64,16 +73,31 @@ document.querySelectorAll('.feature-tab').forEach((tab) => {
     document.querySelectorAll('.feature-tab').forEach((item) => item.classList.remove('active'));
     tab.classList.add('active');
     const content = featureContent[tab.dataset.feature];
-    preview.style.background = content.background;
-    preview.innerHTML = `<p class="preview-label">${content.label}</p><h3>${content.title}</h3><div class="preview-course-row"><span class="preview-circle">01</span><span>${content.row}</span><b>${content.progress}</b></div><div class="preview-line"></div><div class="preview-line short"></div>`;
+    if (preview && content) {
+      preview.style.background = content.background;
+      preview.innerHTML = `
+        <p class="preview-label">${content.label}</p>
+        <h3>${content.title}</h3>
+        <div class="preview-course-row">
+          <span class="preview-circle">01</span>
+          <span>${content.row}</span>
+          <b>${content.progress}</b>
+        </div>
+        <div class="preview-line"></div>
+        <div class="preview-line short"></div>
+      `;
+    }
   });
 });
 
+// Formulário de contato/interesse
 document.querySelector('#interest-form')?.addEventListener('submit', (event) => {
   event.preventDefault();
   const form = event.currentTarget;
   const message = form.querySelector('.form-message');
   const name = new FormData(form).get('name');
-  message.textContent = `Obrigado, ${name}. Recebemos seu contato e um especialista falará com você.`;
+  if (message) {
+    message.textContent = `Obrigado, ${name}. Recebemos seu contato e um especialista falará com você.`;
+  }
   form.reset();
 });
