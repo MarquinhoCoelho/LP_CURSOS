@@ -1,159 +1,103 @@
-/**
- * LMS Platform White-Label - Scripts de Interatividade (script.js)
- */
+// Toggle do Menu Mobile
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.main-nav');
 
-document.addEventListener('DOMContentLoaded', () => {
+menuToggle?.addEventListener('click', () => {
+  const isOpen = nav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  menuToggle.textContent = isOpen ? 'Fechar' : 'Menu';
+});
 
-  /* ==========================================================================
-     1. MENU MOBILE (TOGGLE & NAVEGAÇÃO)
-     ========================================================================== */
-  const mobileToggle = document.getElementById('mobile-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  const navLinks = document.querySelectorAll('.nav-link');
+document.querySelectorAll('.main-nav a').forEach((link) => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    if (menuToggle) menuToggle.textContent = 'Menu';
+  });
+});
 
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      const isOpen = navMenu.classList.toggle('active');
-      mobileToggle.classList.toggle('active');
-      mobileToggle.setAttribute('aria-expanded', String(isOpen));
-    });
+// Animação de entrada (Reveal) com suporte para IntersectionObserver
+const revealElements = document.querySelectorAll('.reveal');
 
-    navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileToggle.classList.remove('active');
-        mobileToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    document.addEventListener('click', (event) => {
-      const isClickInside = navMenu.contains(event.target) || mobileToggle.contains(event.target);
-      if (!isClickInside && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        mobileToggle.classList.remove('active');
-        mobileToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
-
-  /* ==========================================================================
-     2. TROCA DE ABAS NO PREVIEW DE RECURSOS (FEATURE TABS)
-     ========================================================================== */
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabPanels = document.querySelectorAll('.tab-pane');
-
-  if (tabButtons.length > 0) {
-    tabButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const targetTab = button.getAttribute('data-tab');
-
-        tabButtons.forEach((btn) => btn.classList.remove('active'));
-        tabPanels.forEach((panel) => panel.classList.remove('active'));
-
-        button.add('active');
-        button.classList.add('active');
-
-        const targetPanel = document.getElementById(`tab-${targetTab}`);
-        if (targetPanel) {
-          targetPanel.classList.add('active');
-        }
-      });
-    });
-  }
-
-  /* ==========================================================================
-     3. ANIMAÇÃO DE ENTRADA (SCROLL REVEAL)
-     ========================================================================== */
-  const revealTargets = document.querySelectorAll('section, .hero-content, .hero-preview, .target-card, .pricing-card, .step-card');
-
-  revealTargets.forEach((el) => {
-    if (!el.classList.contains('reveal')) {
-      el.classList.add('reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
     }
   });
+}, { threshold: 0.1 });
 
-  if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      }
-    );
+revealElements.forEach((element) => revealObserver.observe(element));
 
-    revealTargets.forEach((el) => revealObserver.observe(el));
-  } else {
-    revealTargets.forEach((el) => el.classList.add('visible'));
+// Fallback automático para garantir visibilidade da página
+setTimeout(() => {
+  revealElements.forEach((element) => element.classList.add('visible'));
+}, 400);
+
+// Troca interativa de conteúdo na seção de Recursos
+const featureContent = {
+  marca: {
+    label: 'experiência white-label',
+    title: 'Aprender com a<br><em>sua identidade.</em>',
+    row: 'Fundamentos da sua metodologia',
+    progress: '72%',
+    background: 'linear-gradient(135deg, #eff8e7, #fff)'
+  },
+  conteudo: {
+    label: 'gestão de conteúdo',
+    title: 'Seu método em<br><em>cada etapa.</em>',
+    row: 'Módulo 03 · Avaliação prática',
+    progress: '46%',
+    background: 'linear-gradient(135deg, #e6f1ff, #fff)'
+  },
+  negocio: {
+    label: 'modelo de acesso',
+    title: 'Conhecimento que<br><em>vira recorrência.</em>',
+    row: 'Assinatura mensal ativa',
+    progress: '89%',
+    background: 'linear-gradient(135deg, #fff1e9, #fff)'
+  },
+  certificado: {
+    label: 'conclusão reconhecida',
+    title: 'Aprendizado que<br><em>deixa marca.</em>',
+    row: 'Certificado Vivit Cursos',
+    progress: '100%',
+    background: 'linear-gradient(135deg, #f4edff, #fff)'
   }
+};
 
-  /* ==========================================================================
-     4. ENVIO DO FORMULÁRIO DE CONTATO / CAPTURA DE LEADS
-     ========================================================================== */
-  const leadForm = document.getElementById('lead-form');
+const preview = document.querySelector('#feature-preview');
+document.querySelectorAll('.feature-tab').forEach((tab) => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.feature-tab').forEach((item) => item.classList.remove('active'));
+    tab.classList.add('active');
+    const content = featureContent[tab.dataset.feature];
+    if (preview && content) {
+      preview.style.background = content.background;
+      preview.innerHTML = `
+        <p class="preview-label">${content.label}</p>
+        <h3>${content.title}</h3>
+        <div class="preview-course-row">
+          <span class="preview-circle">01</span>
+          <span>${content.row}</span>
+          <b>${content.progress}</b>
+        </div>
+        <div class="preview-line"></div>
+        <div class="preview-line short"></div>
+      `;
+    }
+  });
+});
 
-  if (leadForm) {
-    leadForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-
-      const formData = new FormData(leadForm);
-      const name = formData.get('name') || 'Cliente';
-      const email = formData.get('email');
-      const submitBtn = leadForm.querySelector('button[type="submit"]');
-
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Enviando solicitação...';
-      }
-
-      setTimeout(() => {
-        const existingMessage = leadForm.querySelector('.form-feedback');
-        if (existingMessage) {
-          existingMessage.remove();
-        }
-
-        const feedbackMessage = document.createElement('div');
-        feedbackMessage.className = 'form-feedback success';
-        feedbackMessage.innerHTML = `
-          <div style="background-color: #e8f5e9; border: 1px solid var(--color-primary); border-radius: var(--radius-sm); padding: 1rem; margin-top: 1rem; text-align: center; color: var(--color-dark);">
-            <p style="font-weight: 700; font-family: var(--font-heading); margin-bottom: 0.25rem;">🚀 Solicitação enviada com sucesso!</p>
-            <p style="font-size: 0.875rem; color: var(--color-text-muted);">Obrigado, <strong>${name}</strong>. Enviamos os detalhes de acesso à demonstração para o e-mail <em>${email}</em>.</p>
-          </div>
-        `;
-
-        leadForm.appendChild(feedbackMessage);
-
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Solicitar Demonstração Gratuita';
-        }
-        leadForm.reset();
-
-        setTimeout(() => {
-          feedbackMessage.remove();
-        }, 8000);
-      }, 1000);
-    });
+// Formulário de contato/interesse
+document.querySelector('#interest-form')?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const message = form.querySelector('.form-message');
+  const name = new FormData(form).get('name');
+  if (message) {
+    message.textContent = `Obrigado, ${name}. Recebemos seu contato e um especialista falará com você.`;
   }
-
-  /* ==========================================================================
-     5. SOMBRA DINÂMICA NO CABEÇALHO AO ROLAR (HEADER SHADOW)
-     ========================================================================== */
-  const header = document.getElementById('header');
-
-  if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        header.style.boxShadow = 'var(--shadow-md)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
-    });
-  }
+  form.reset();
 });
