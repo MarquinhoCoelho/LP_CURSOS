@@ -12,14 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link');
 
   if (mobileToggle && navMenu) {
-    // Alterna a exibição do menu mobile
     mobileToggle.addEventListener('click', () => {
       const isOpen = navMenu.classList.toggle('active');
       mobileToggle.classList.toggle('active');
       mobileToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    // Fecha o menu ao clicar em qualquer link de navegação
     navLinks.forEach((link) => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -28,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Fecha o menu ao clicar fora dele
     document.addEventListener('click', (event) => {
       const isClickInside = navMenu.contains(event.target) || mobileToggle.contains(event.target);
       if (!isClickInside && navMenu.classList.contains('active')) {
@@ -43,21 +40,19 @@ document.addEventListener('DOMContentLoaded', () => {
      2. TROCA DE ABAS NO PREVIEW DE RECURSOS (FEATURE TABS)
      ========================================================================== */
   const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabPanels = document.querySelectorAll('.tab-panel');
+  const tabPanels = document.querySelectorAll('.tab-pane');
 
   if (tabButtons.length > 0) {
     tabButtons.forEach((button) => {
       button.addEventListener('click', () => {
         const targetTab = button.getAttribute('data-tab');
 
-        // Remove a classe 'active' de todas as abas e painéis
         tabButtons.forEach((btn) => btn.classList.remove('active'));
         tabPanels.forEach((panel) => panel.classList.remove('active'));
 
-        // Ativa o botão selecionado
+        button.add('active');
         button.classList.add('active');
 
-        // Ativa o painel correspondente ao id "tab-{data-tab}"
         const targetPanel = document.getElementById(`tab-${targetTab}`);
         if (targetPanel) {
           targetPanel.classList.add('active');
@@ -69,24 +64,21 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      3. ANIMAÇÃO DE ENTRADA (SCROLL REVEAL)
      ========================================================================== */
-  // Seleciona seções e elementos para aplicar a animação de entrada
-  const revealTargets = document.querySelectorAll('section, .hero-content, .hero-preview, .feature-card, .price-card, .step-card');
+  const revealTargets = document.querySelectorAll('section, .hero-content, .hero-preview, .target-card, .pricing-card, .step-card');
 
-  // Adiciona a classe base 'reveal' caso ainda não possuam
   revealTargets.forEach((el) => {
     if (!el.classList.contains('reveal')) {
       el.classList.add('reveal');
     }
   });
 
-  // Utiliza IntersectionObserver para detecção de rolagem
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target); // Anima apenas uma vez
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -98,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealTargets.forEach((el) => revealObserver.observe(el));
   } else {
-    // Fallback imediato para navegadores sem suporte ao IntersectionObserver
     revealTargets.forEach((el) => el.classList.add('visible'));
   }
 
@@ -111,27 +102,22 @@ document.addEventListener('DOMContentLoaded', () => {
     leadForm.addEventListener('submit', (event) => {
       event.preventDefault();
 
-      // Coleta dos dados do formulário
       const formData = new FormData(leadForm);
       const name = formData.get('name') || 'Cliente';
       const email = formData.get('email');
       const submitBtn = leadForm.querySelector('button[type="submit"]');
 
-      // Estado de carregamento do botão
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Enviando solicitação...';
       }
 
-      // Simulação de envio assíncrono (ex: API / Webhook)
       setTimeout(() => {
-        // Remove mensagem anterior se existir
         const existingMessage = leadForm.querySelector('.form-feedback');
         if (existingMessage) {
           existingMessage.remove();
         }
 
-        // Cria elemento de feedback dinâmico
         const feedbackMessage = document.createElement('div');
         feedbackMessage.className = 'form-feedback success';
         feedbackMessage.innerHTML = `
@@ -143,14 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         leadForm.appendChild(feedbackMessage);
 
-        // Restaura o botão e limpa os campos
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.textContent = 'Solicitar Demonstração Gratuita';
         }
         leadForm.reset();
 
-        // Oculta a mensagem após 8 segundos
         setTimeout(() => {
           feedbackMessage.remove();
         }, 8000);
